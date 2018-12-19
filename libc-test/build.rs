@@ -40,6 +40,7 @@ fn main() {
         cfg.define("__APPLE_USE_RFC_3542", None);
     } else if windows {
         cfg.define("_WIN32_WINNT", Some("0x8000"));
+//        cfg.define("_CRT_STDIO_INLINE", Some("1"));
     } else if solaris {
         cfg.define("_XOPEN_SOURCE", Some("700"));
         cfg.define("__EXTENSIONS__", None);
@@ -136,7 +137,7 @@ fn main() {
 
     if android {
         if !aarch64 && !x86_64 {
-            // time64_t is not define for aarch64 and x86_64
+            // time64_t is not definedefine for aarch64 and x86_64
             // If included it will generate the error 'Your time_t is already 64-bit'
             cfg.header("time64.h");
         }

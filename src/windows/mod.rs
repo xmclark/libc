@@ -287,6 +287,16 @@ extern {
     pub fn rand() -> c_int;
     pub fn srand(seed: c_uint);
 
+    pub fn fprintf(stream: *mut FILE,
+                   format: *const c_char, ...) -> c_int;
+    pub fn printf(format: *const c_char, ...) -> c_int;
+    pub fn snprintf(s: *mut c_char, n: size_t,
+                    format: *const c_char, ...) -> c_int;
+    pub fn sprintf(s: *mut c_char, format: *const c_char, ...) -> c_int;
+    pub fn fscanf(stream: *mut FILE, format: *const c_char, ...) -> c_int;
+    pub fn scanf(format: *const c_char, ...) -> c_int;
+    pub fn sscanf(s: *const c_char, format: *const c_char, ...) -> c_int;
+
     #[link_name = "_chmod"]
     pub fn chmod(path: *const c_char, mode: ::c_int) -> ::c_int;
     #[link_name = "_wchmod"]
